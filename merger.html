@@ -29,15 +29,16 @@
 <body>
     <h1>Tejaswini Bobba builds a merger</h1>
     <div class="flex-container" id="target">
-        <div>row item 1</div>
-        <div>row item 2</div>
-        <div>row item 3</div>
+        <div class="merger">row item 1</div>
+        <div class="merger">row item 2</div>
+        <div class="merger">row item 3</div>
     </div>
     <br>
     <input type="text" id="inputText" placeholder="Enter text">
     <button onclick="addEnd()">Add end</button>
     <button onclick="addFront()">Add front</button>
     <button onclick="remove()">Remove</button>
+    <button onclick="swapItems()">swap</button>
 </body>
 <script>
 
@@ -66,11 +67,39 @@
           length = mergerItems.length;
           if (length > 0) {
             middleIndex = Math.floor(length / 2);
-             mergerItems[middleIndex].remove();
+            mergerItems[middleIndex].remove();
 
         }
 
     }
+    function swapItems(){
+        const mergerItems = document.getElementsByClassName("merger");
+        const length = mergerItems.length;
+        if(length >= 2){
+            const index1 = Math.floor(Math.random()*length);
+            let index2 = Math.floor(Math.random()*length-1);
+            if(index2 >= index1){
+                index2++;
+            }
+            const item1 = mergerItems[index1];
+            const item2 =  mergerItems[index2];
+            const parent = item1.parentElement;
+            const nextSibiling = item2.nextSibiling;
+            if(nextSibiling === item1){
+                parent.insertBefore(item2,item1);
+            }else if(nextSibiling === item2){
+                parent.insertBefore(item1,item2);
+            }else{
+                parentx.insertBefore(item1,nextSibiling);
+                parentx.insertBefore(item2,item1);
+
+            }
+
+
+        }
+    }
+
+    
 
 </script>
 </html>
