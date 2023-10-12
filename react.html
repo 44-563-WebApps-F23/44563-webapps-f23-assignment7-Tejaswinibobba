@@ -13,10 +13,10 @@
 
 <body>
     <h1>Tejaswini Bobba speed check</h1>
-    <div id="target">Your time: Waiting for reaction...</div>
+    <div id="target">your Time: Waiting for reaction...</div>
     <div id="counter">Count: 0</div>
-    <button id="startButton">Start Timer</button>
-    <button id="reactButton">React</button>
+    <button id="startTimer">Start Timer</button>
+    <button id="react">React</button>
     <script>
         function buttonPress1() {
             setTimeout(function () {
@@ -35,7 +35,7 @@
             console.log("Reaction time recorded: " + reactTime);
 
         }
-        document.getElementById("reactButton").onclick = recordTime;
+        document.getElementById("react").onclick = recordTime;
         function startTime() {
             for (let i = 0; i < 9; i++) {
                 setTimeout(function () {
@@ -46,14 +46,14 @@
                 if (reactTime === undefined) {
                     document.getElementById("target").innerHTML = "Too slow";
                 } else {
-                    const endTime = Date.now()
+                    const endTime = Date.now();
                     const elapsed = endTime - reactTime;
                     document.getElementById("target").innerHTML = "Time was" + elapsed + "ms";
 
                 }
             }, 8000);
         }
-        document.getElementById("startButton").onclick = startTime;      
+        document.getElementById("startTimer").onclick = startTime;      
     </script>
 </body>
 </html>
